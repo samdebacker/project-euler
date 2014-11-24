@@ -7,7 +7,7 @@ import scala.annotation.tailrec
 class EulerSuite extends FunSuite {
   def toReadableTime(nanos: Long) = {
     type TimeMeasure = (Long, String)
-    val conversions: Seq[TimeMeasure] = Seq((1000L, "\u00b5s"), (1000L, "ms"), (1000L, "s"), (60L, "m"))
+    val conversions: Seq[TimeMeasure] = Seq((1000L, "µs"), (1000L, "ms"), (1000L, "s"), (60L, "m"))
     @tailrec def toReadableTime_(current: TimeMeasure, restConversions: Seq[TimeMeasure] = conversions): TimeMeasure  =
       if (restConversions.isEmpty || current._1 < restConversions.head._1)
         current
